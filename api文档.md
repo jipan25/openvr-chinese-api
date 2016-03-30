@@ -3,14 +3,11 @@ OpenVR API为游戏或应用提供了一种不依赖于各种硬件平台的VR�
 
 API是一组C++接口类的纯虚函数。当应用程序初始化VR系统后，它将返回一个接口，这个接口提供匹配了SDK中所有在头文件里定义的方法。一旦某个版本的API接口被发布了，它将在之后所有版本中得到支持，所以应用程序不需要更新到新的sdk就可以得到新硬件或其它功能的支持。
 # 初始化和清理
-Because the OpenVR API causes the game to connect to any attached VR hardware, it is not initialized automatically. To initialize the API and get access to the vr::IVRSystem interface call the openvr::VR_Init function. To close down your connection to the hardware and release your vr::IVRSystem interface, call openvr::VR_Shutdown.
 
 由于OpenVR API使游戏连接到任意的VR硬件，它不会自动初始化。如果要初始化API得到访问vr::IVRSystem的接口，需调用openvr::VR_Init函数。如果要释放vr::IVRSystem接口，关闭你的程序到硬件的连接，执行openvr::VR_Shutdown函数。
 
 `vr::IVRSystem *openvr::VR_Init( vr::`[`HmdError`](https://github.com/ValveSoftware/openvr/wiki/HmdError)` *peError )`
 
-The call will return a vr::IVRSystem pointer that allows the game to call other OpenVR API methods. If something fails the call will return NULL and peError will be set to an error code that indicates what the problem was.
-peError - The error code that occurred or vr::HmdError_None if there was no error. See [`vr::HmdError`](https://github.com/ValveSoftware/openvr/wiki/HmdError) for possible error codes.
 
 这个调用将返回一个vr::IVRSystem的指针，允许游戏调用其它OpenVR API的方法。如果调用过程出错，会返回空指针NULL和一个peError，peError会被设置为一个错误码表明是什么问题。
 peError - 当前错误码，或者无错误时的vr::HmdError_None.参见 [`vr::HmdError`](wiki/HmdError.md) 查看所有错误码.
