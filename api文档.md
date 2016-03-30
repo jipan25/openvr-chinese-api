@@ -3,43 +3,43 @@ OpenVR API为游戏或应用提供了一种不依赖于各种硬件平台的VR�
 
 API是一组C++接口类的纯虚函数。当应用程序初始化VR系统后，它将返回一个接口，这个接口提供匹配了SDK中所有在头文件里定义的方法。一旦某个版本的API接口被发布了，它将在之后所有版本中得到支持，所以应用程序不需要更新到新的sdk就可以得到新硬件或其它功能的支持。
 # 初始化和清理
-Because the OpenVR API causes the game to connect to any attached VR hardware, it is not initialized automatically. To initialize the API and get access to the vr::IVRSystem interface call the openvr::VR_Init function. To close down your connection to the hardware and release your vr::IVRSystem interface, call openvr::VR_Shutdown.
+
 由于OpenVR API使游戏连接到任意的VR硬件，它不会自动初始化。如果要初始化API得到访问vr::IVRSystem的接口，需调用openvr::VR_Init函数。如果要释放vr::IVRSystem接口，关闭你的程序到硬件的连接，执行openvr::VR_Shutdown函数。
 
 `vr::IVRSystem *openvr::VR_Init( vr::`[`HmdError`](https://github.com/ValveSoftware/openvr/wiki/HmdError)` *peError )`
 
-The call will return a vr::IVRSystem pointer that allows the game to call other OpenVR API methods. If something fails the call will return NULL and peError will be set to an error code that indicates what the problem was.
-peError - The error code that occurred or vr::HmdError_None if there was no error. See [`vr::HmdError`](https://github.com/ValveSoftware/openvr/wiki/HmdError) for possible error codes.
+
 这个调用将返回一个vr::IVRSystem的指针，允许游戏调用其它OpenVR API的方法。如果调用过程出错，会返回空指针NULL和一个peError，peError会被设置为一个错误码表明是什么问题。
 
 `void openvr::VR_Shutdown()`
 
-Shuts down the connection to the VR hardware and cleans up the OpenVR API. The vr::IVRSystem pointer returned by vr::VR_Init will be invalid after this call is made. 
 
+关闭程序和VR硬件的连接并清理OpenVR API. 之前vr::VR_Init调用返回的vr::IVRSystem 指针将不合法.
 
-# Interfaces
+# 接口Interfaces
 
 The API is broken down into 3 primary interfaces in the vr namespace:
-* [IVRSystem](https://github.com/ValveSoftware/openvr/wiki/IVRSystem_Overview) - Main interface for display, distortion, tracking, controller, and event access.
-* [IVRChaperone](https://github.com/ValveSoftware/openvr/wiki/IVRChaperone_Overview) - Provides access to chaperone soft and hard bounds.
-* [IVRCompositor](https://github.com/ValveSoftware/openvr/wiki/IVRCompositor_Overview) - Allows an application to render 3D content through the VR compositor.
-* [IVROverlay](https://github.com/ValveSoftware/openvr/wiki/IVROverlay_Overview) - Allows an application to render 2D content through the VR Compositor.
-* [IVRRenderModels](https://github.com/ValveSoftware/openvr/wiki/IVRRenderModels_Overview) - Allows an application access to render models.
+API在vr命名空间下被分拆为3个主要的接口:
+* [IVRSystem](wiki/IVRSystem_Overview.md) - 主要包括关于显示、跟踪、变形、控制器和相关事件访问在。
+* [IVRChaperone](wiki/IVRChaperone_Overview.md) - 提供了对软硬件绑定结构数据的访问。
+* [IVRCompositor](wiki/IVRCompositor_Overview.md) - 允许应用程序通过VR Compositer输出3D内容.
+* [IVROverlay](wiki/IVROverlay_Overview) - 允许应用程序通过VR Compositor输出2D内容.
+* [IVRRenderModels](wiki/IVRRenderModels_Overview) - 允许应用程序访问输出的模型.
 
-# Other Functions
+# 其它方法Other Functions
 
 `bool openvr::VR_IsHmdPresent()`
 
-Returns true if the system believes that an HMD is present on the system. This function is much faster than initializing all of OpenVR just to check for an HMD. Use it when you have a piece of UI that you want to enable only for users with an HMD.
+当系统认为头显已正常连接时返回true.这个方法比其它初始化OpenVR后检查头显要快得多，当你有一块UI只想在用户头显上显示时可以用它。
 
-This function will return true in situations where vr::VR_Init() will return NULL. It is a quick way to eliminate users that have no VR hardware, but there are some startup conditions that can only be detected by starting the system.
+这个方法在vr::VR_Init调用返回NULL后调用会返回true.这是一个快捷的方式通知用户当前没有VR硬件，但也有一些启动状态只能在VR系统启动后被检测。
 
 
 `const char *VR_GetStringFor HmdError( vr::HmdError error );`
 
-This function returns an English translation of vr::HmdError enum values. It can be called any time, regardless of whether the VR system is started up.
+这个方法返回vr::HmdError的枚举值的英文翻译.它可以在任何时间被调用，而不用管VR系统是否已启动。
 
 
 `void *VR_GetGenericInterface( const char *pchInterfaceVersion, vr::`[`HmdError`](https://github.com/ValveSoftware/openvr/wiki/HmdError)` *peError )`
 
-Requests an interface by name from OpenVR. It will return NULL and pass back an error in peError if the interface can't be found. It will always return NULL if openvr::VR_Init() has not been called successfully.
+通过接口名称获得接口句柄。如果接口名称未被找到这个方法将返回NULL并给peError赋值相应的error.如果openvr::VR_Init没有被成功调胳，则此方法始终返回NULL.
