@@ -28,55 +28,55 @@ vr::IVRSystem接口共包含以下方法:
 * 显示 - 处理窗口显示位置、创建视图并渲染、如何渲染到表面等方法
 Display - Functions to figure out where to put a window, how to create viewports and render targets, and how to render into those surfaces.
 
- * [GetWindowBounds](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetWindowBounds)
+ * [GetWindowBounds](wiki/IVRSystem::GetWindowBounds.md)
 
- * [GetRecommendedRenderTargetSize](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetRecommendedRenderTargetSize)
- * [GetEyeOutputViewport](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetEyeOutputViewport)
- * [GetProjectionMatrix](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetProjectionMatrix)
- * [GetProjectionRaw](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetProjectionRaw)
- * [ComputeDistortion](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::ComputeDistortion)
- * [GetEyeToHeadTransform](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetEyeToHeadTransform)
- * [GetTimeSinceLastVsync](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTimeSinceLastVsync)
- * [GetDXGIOutputInfo](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetDXGIOutputInfo)
- * [GetD3D9AdapterIndex](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetD3D9AdapterIndex)
- * [AttachToWindow](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::AttachToWindow)
+ * [GetRecommendedRenderTargetSize](wiki/IVRSystem::GetRecommendedRenderTargetSize.md)
+ * [GetEyeOutputViewport](wiki/IVRSystem::GetEyeOutputViewport)
+ * [GetProjectionMatrix](wiki/IVRSystem::GetProjectionMatrix)
+ * [GetProjectionRaw](wiki/IVRSystem::GetProjectionRaw)
+ * [ComputeDistortion](wiki/IVRSystem::ComputeDistortion)
+ * [GetEyeToHeadTransform](wiki/IVRSystem::GetEyeToHeadTransform)
+ * [GetTimeSinceLastVsync](wiki/IVRSystem::GetTimeSinceLastVsync)
+ * [GetDXGIOutputInfo](wiki/IVRSystem::GetDXGIOutputInfo)
+ * [GetD3D9AdapterIndex](wiki/IVRSystem::GetD3D9AdapterIndex)
+ * [AttachToWindow](wiki/IVRSystem::AttachToWindow)
 * 追踪 - 计算各被追踪设备的姿态的方法
 Tracking - Functions to compute the pose of tracked devices
- * [GetDeviceToAbsoluteTrackingPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetDeviceToAbsoluteTrackingPose)
- * [ResetSeatedZeroPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::ResetSeatedZeroPose)
- * [GetSeatedZeroPoseToStandingAbsoluteTrackingPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetSeatedZeroPoseToStandingAbsoluteTrackingPose)
+ * [GetDeviceToAbsoluteTrackingPose](wiki/IVRSystem::GetDeviceToAbsoluteTrackingPose)
+ * [ResetSeatedZeroPose](wiki/IVRSystem::ResetSeatedZeroPose)
+ * [GetSeatedZeroPoseToStandingAbsoluteTrackingPose](wiki/IVRSystem::GetSeatedZeroPoseToStandingAbsoluteTrackingPose)
  * Render Model Functions - Access to models and textures that match the actual physical appearance of devices wherever possible.
- * [LoadRenderModel](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::LoadRenderModel)
- * [FreeRenderModel](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::FreeRenderModel)
+ * [LoadRenderModel](wiki/IVRSystem::LoadRenderModel)
+ * [FreeRenderModel](wiki/IVRSystem::FreeRenderModel)
 * 属性方法 - 访问被追踪设备的非追踪属性 
 Property functions - Access to non-tracking information about tracked devices
- * [GetTrackedDeviceClass](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceClass)
- * [IsTrackedDeviceConnected](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::IsTrackedDeviceConnected)
- * [GetBoolTrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
- * [GetFloatTrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
- * [GetInt32TrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
- * [GetUint64TrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
- * [GetMatrix34TrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
- * [GetStringTrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
- * [GetPropErrorNameFromEnum](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetPropErrorNameFromEnum)
+ * [GetTrackedDeviceClass](wiki/IVRSystem::GetTrackedDeviceClass)
+ * [IsTrackedDeviceConnected](wiki/IVRSystem::IsTrackedDeviceConnected)
+ * [GetBoolTrackedDeviceProperty](wiki/IVRSystem::GetTrackedDeviceProperty)
+ * [GetFloatTrackedDeviceProperty](wiki/IVRSystem::GetTrackedDeviceProperty)
+ * [GetInt32TrackedDeviceProperty](wiki/IVRSystem::GetTrackedDeviceProperty)
+ * [GetUint64TrackedDeviceProperty](wiki/IVRSystem::GetTrackedDeviceProperty)
+ * [GetMatrix34TrackedDeviceProperty](wiki/IVRSystem::GetTrackedDeviceProperty)
+ * [GetStringTrackedDeviceProperty](wiki/IVRSystem::GetTrackedDeviceProperty)
+ * [GetPropErrorNameFromEnum](wiki/IVRSystem::GetPropErrorNameFromEnum)
 * Event Methods - Access to events generated by tracked devices or the system itself
- * [PollNextEvent](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::PollNextEvent)
- * [PollNextEventWithPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::PollNextEvent)
- * [GetEventTypeNameFromEnum](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetEventTypeNameFromEnum)
+ * [PollNextEvent](wiki/IVRSystem::PollNextEvent)
+ * [PollNextEventWithPose](wiki/IVRSystem::PollNextEvent)
+ * [GetEventTypeNameFromEnum](wiki/IVRSystem::GetEventTypeNameFromEnum)
 * 渲染帮助方法 - 帮助渲染的工具方法
 Rendering Helper Methods - Utility functions that help with rendering
- * [GetHiddenAreaMesh](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetHiddenAreaMesh)
+ * [GetHiddenAreaMesh](wiki/IVRSystem::GetHiddenAreaMesh)
 * 控制器方法 - 与控制器交此的各种方法
 Controller Methods - Methods for interacting with controllers
- * [TriggerHapticPulse](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::TriggerHapticPulse)
- * [GetControllerState](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetControllerState)
- * [GetControllerStateWithPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetControllerStateWithPose)
- * [GetButtonIdNameFromEnum](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetButtonIdNameFromEnum)
- * [GetControllerAxisTypeNameFromEnum](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetControllerAxisTypeNameFromEnum)
- * [HandleControllerOverlayInteractionAsMouse](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::HandleControllerOverlayInteractionAsMouse)
- * [CaptureInputFocus](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::CaptureInputFocus)
- * [ReleaseInputFocus](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::ReleaseInputFocus)
- * [IsInputFocusCapturedByAnotherProcess](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::IsInputFocusCapturedByAnotherProcess)
+ * [TriggerHapticPulse](wiki/IVRSystem::TriggerHapticPulse)
+ * [GetControllerState](wiki/IVRSystem::GetControllerState)
+ * [GetControllerStateWithPose](wiki/IVRSystem::GetControllerStateWithPose)
+ * [GetButtonIdNameFromEnum](wiki/IVRSystem::GetButtonIdNameFromEnum)
+ * [GetControllerAxisTypeNameFromEnum](wiki/IVRSystem::GetControllerAxisTypeNameFromEnum)
+ * [HandleControllerOverlayInteractionAsMouse](wiki/IVRSystem::HandleControllerOverlayInteractionAsMouse)
+ * [CaptureInputFocus](wiki/IVRSystem::CaptureInputFocus)
+ * [ReleaseInputFocus](wiki/IVRSystem::ReleaseInputFocus)
+ * [IsInputFocusCapturedByAnotherProcess](wiki/IVRSystem::IsInputFocusCapturedByAnotherProcess)
 
 
 
