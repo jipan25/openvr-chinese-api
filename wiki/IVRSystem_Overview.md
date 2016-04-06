@@ -1,8 +1,10 @@
-# Overview
+# 概述 
 
 The vr::IVRSystem interface provides access to display configuration information, tracking data, distortion functions, controller state, events, and device properties. It is the main interface of OpenVR and can be initialized and retrieved with the openvr::VR_Init function.
+vr::IVRSystem接口提供了以下访问能力：显示配置信息、控制器跟踪数据、变形方法、控制器状态、事件和设备属性。它是OpenVR主要的接口，可以被vr::VR_Init方法初始化和返回。
 
 Many functions in IVRSystem use a tracked device index to identify a specific device attached to the computer. This value is defined as follows:
+在IVRSystem中的很多方法使用被追踪的设备编号定义某个固定的设备。具体定义如下：
 
     typedef uint32_t TrackedDeviceIndex_t;
 	static const uint32_t k_unTrackedDeviceIndexInvalid = 0xFFFFFFFF;
@@ -10,17 +12,22 @@ Many functions in IVRSystem use a tracked device index to identify a specific de
 	static const uint32_t k_unTrackedDeviceIndex_Hmd = 0;
 
 There will never be more than k_unMaxTrackedDeviceCount devices active in the system at any given time. Their indices will be 0 (for the HMD) and 1-15 for the other devices. 
+在任意特定时间，不会有超过k_unMaxTrackedDeviceCount个数的设备同时出现在系统里.默认0号设备为头显，1-15号为其它设备编号.
 
 Each tracked device has a class that is one of:
-* TrackedDeviceClass_Invalid - There is no device at this index
-* TrackedDeviceClass_HMD - The device at this index is an HMD
-* TrackedDeviceClass_Controller - The device is a controller
-* TrackedDeviceClass_TrackingReference - The device is a camera, Lighthouse base station, or other device that supplies tracking ground truth.
+每一个被追踪设备是以下几类中一种：
+* TrackedDeviceClass_Invalid - 此编号对应设备不存在。There is no device at this index
+* TrackedDeviceClass_HMD - 此编号对应头显。The device at this index is an HMD
+* TrackedDeviceClass_Controller - 此设备是控制器。The device is a controller
+* TrackedDeviceClass_TrackingReference - 此设备是摄像头、光塔或其它提供追踪实况的设备。The device is a camera, Lighthouse base station, or other device that supplies tracking ground truth.
 
-# Interface Functions
+# 接口方法Interface Functions
 
 The vr::IVRSystem interface contains the following functions:
-* Display - Functions to figure out where to put a window, how to create viewports and render targets, and how to render into those surfaces.
+vr::IVRSystem接口共包含以下方法:
+* 显示 - 处理窗口显示位置、创建视图并渲染、如何渲染到表面等方法
+Display - Functions to figure out where to put a window, how to create viewports and render targets, and how to render into those surfaces.
+
  * [GetWindowBounds](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetWindowBounds)
 
  * [GetRecommendedRenderTargetSize](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetRecommendedRenderTargetSize)
@@ -33,14 +40,16 @@ The vr::IVRSystem interface contains the following functions:
  * [GetDXGIOutputInfo](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetDXGIOutputInfo)
  * [GetD3D9AdapterIndex](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetD3D9AdapterIndex)
  * [AttachToWindow](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::AttachToWindow)
-* Tracking - Functions to compute the pose of tracked devices
+* 追踪 - 计算各被追踪设备的姿态的方法
+Tracking - Functions to compute the pose of tracked devices
  * [GetDeviceToAbsoluteTrackingPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetDeviceToAbsoluteTrackingPose)
  * [ResetSeatedZeroPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::ResetSeatedZeroPose)
  * [GetSeatedZeroPoseToStandingAbsoluteTrackingPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetSeatedZeroPoseToStandingAbsoluteTrackingPose)
  * Render Model Functions - Access to models and textures that match the actual physical appearance of devices wherever possible.
  * [LoadRenderModel](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::LoadRenderModel)
  * [FreeRenderModel](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::FreeRenderModel)
-* Property functions - Access to non-tracking information about tracked devices
+* 属性方法 - 访问被追踪设备的非追踪属性 
+Property functions - Access to non-tracking information about tracked devices
  * [GetTrackedDeviceClass](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceClass)
  * [IsTrackedDeviceConnected](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::IsTrackedDeviceConnected)
  * [GetBoolTrackedDeviceProperty](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetTrackedDeviceProperty)
@@ -54,9 +63,11 @@ The vr::IVRSystem interface contains the following functions:
  * [PollNextEvent](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::PollNextEvent)
  * [PollNextEventWithPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::PollNextEvent)
  * [GetEventTypeNameFromEnum](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetEventTypeNameFromEnum)
-* Rendering Helper Methods - Utility functions that help with rendering
+* 渲染帮助方法 - 帮助渲染的工具方法
+Rendering Helper Methods - Utility functions that help with rendering
  * [GetHiddenAreaMesh](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetHiddenAreaMesh)
-* Controller Methods - Methods for interacting with controllers
+* 控制器方法 - 与控制器交此的各种方法
+Controller Methods - Methods for interacting with controllers
  * [TriggerHapticPulse](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::TriggerHapticPulse)
  * [GetControllerState](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetControllerState)
  * [GetControllerStateWithPose](https://github.com/ValveSoftware/openvr/wiki/IVRSystem::GetControllerStateWithPose)
